@@ -1,8 +1,0 @@
-url="https://www.google.com/"
-urlOmni = "https://staging.trackme.com.ph/test/1.6/login#"
-test = ""
-test2 = "hahahaha"
-test3 = "jgtronoOMNI"
-test4= ""
-test5= "haha"
-test6 = "justinpogi1"
