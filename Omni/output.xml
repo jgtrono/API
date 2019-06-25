@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20190507 14:57:35.049" generator="Robot 2.8.7 (Python 2.7.8 on win32)">
+<suite source="C:\RobotFramework\Omni\Omni.txt" id="s1" name="Omni">
+<test id="s1-t1" name="Login">
+<kw type="kw" name="commonKeyWords.Open and Maximize Browser">
+<doc></doc>
+<arguments>
+<arg>${urlOmni}</arg>
+</arguments>
+<kw type="kw" name="ExtendedSelenium2Library.Open Browser">
+<doc>Opens a new browser instance to given URL.</doc>
+<arguments>
+<arg>${urlOmni}</arg>
+<arg>${browser}</arg>
+</arguments>
+<msg timestamp="20190507 14:57:35.205" level="INFO">Opening browser 'firefox' to base url 'https://staging.trackme.com.ph/test/1.6/login#'</msg>
+<kw type="kw" name="ExtendedSelenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20190507 14:57:38.296" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20190507 14:57:38.296" starttime="20190507 14:57:38.281"></status>
+</kw>
+<msg timestamp="20190507 14:57:38.296" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20190507 14:57:38.296" level="FAIL">SessionNotCreatedException: Message: Unable to find a matching set of capabilities
+</msg>
+<status status="FAIL" endtime="20190507 14:57:38.296" starttime="20190507 14:57:35.205"></status>
+</kw>
+<status status="FAIL" endtime="20190507 14:57:38.296" starttime="20190507 14:57:35.205"></status>
+</kw>
+<kw type="teardown" name="ExtendedSelenium2Library.Close All Browsers">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<arguments>
+</arguments>
+<status status="PASS" endtime="20190507 14:57:38.296" starttime="20190507 14:57:38.296"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20190507 14:57:38.296" critical="yes" starttime="20190507 14:57:35.205">SessionNotCreatedException: Message: Unable to find a matching set of capabilities
+</status>
+</test>
+<doc></doc>
+<metadata>
+</metadata>
+<status status="FAIL" endtime="20190507 14:57:38.296" starttime="20190507 14:57:35.049"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="1" pass="0">Critical Tests</stat>
+<stat fail="1" pass="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat fail="1" pass="0" id="s1" name="Omni">Omni</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20190507 14:57:38.296" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+</errors>
+</robot>

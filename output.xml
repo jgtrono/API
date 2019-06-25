@@ -1,0 +1,1020 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot rpa="false" generated="20190624 13:02:10.084" generator="Robot 3.1.2 (Python 2.7.8 on win32)">
+<suite source="C:\RobotFramework\apiTest.robot" id="s1" name="apiTest">
+<test id="s1-t1" name="Auxiliary">
+<kw name="Get Current Date" library="DateTime">
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<arguments>
+<arg>exclude_millis=yes</arg>
+</arguments>
+<assign>
+<var>${myTime}</var>
+</assign>
+<msg timestamp="20190624 13:02:12.433" level="INFO">${myTime} = 2019-06-24 13:02:12</msg>
+<status status="PASS" endtime="20190624 13:02:12.433" starttime="20190624 13:02:12.433"></status>
+</kw>
+<kw name="Convert Date" library="DateTime">
+<doc>Converts between supported `date formats`.</doc>
+<arguments>
+<arg>${myTime}</arg>
+</arguments>
+<assign>
+<var>${time}</var>
+</assign>
+<msg timestamp="20190624 13:02:12.447" level="INFO">${time} = 2019-06-24 13:02:12.000</msg>
+<status status="PASS" endtime="20190624 13:02:12.447" starttime="20190624 13:02:12.434"></status>
+</kw>
+<kw name="Convert Date" library="DateTime">
+<doc>Converts between supported `date formats`.</doc>
+<arguments>
+<arg>${myTime}</arg>
+</arguments>
+<assign>
+<var>${time2}</var>
+</assign>
+<msg timestamp="20190624 13:02:12.448" level="INFO">${time2} = 2019-06-24 13:02:12.000</msg>
+<status status="PASS" endtime="20190624 13:02:12.448" starttime="20190624 13:02:12.448"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>Content-Type=application/x-www-form-urlencoded</arg>
+</arguments>
+<assign>
+<var>${header}</var>
+</assign>
+<msg timestamp="20190624 13:02:12.449" level="INFO">${header} = {u'Content-Type': u'application/x-www-form-urlencoded'}</msg>
+<status status="PASS" endtime="20190624 13:02:12.449" starttime="20190624 13:02:12.448"></status>
+</kw>
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>AddData</arg>
+<arg>${locationURL}</arg>
+</arguments>
+<msg timestamp="20190624 13:02:12.450" level="INFO">Creating Session using : alias=AddData, url=https://services.trackme.com.ph/apis/, headers={},                     cookies=None, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" endtime="20190624 13:02:12.450" starttime="20190624 13:02:12.450"></status>
+</kw>
+<kw type="for" name="${i} IN RANGE [ 999999 ]">
+<kw type="foritem" name="${i} = 0">
+<kw name="Exit For Loop If" library="BuiltIn">
+<doc>Stops executing the enclosing for loop if the ``condition`` is true.</doc>
+<arguments>
+<arg>${i} == 6</arg>
+</arguments>
+<status status="PASS" endtime="20190624 13:02:12.481" starttime="20190624 13:02:12.481"></status>
+</kw>
+<kw name="Add Time To Date" library="DateTime">
+<doc>Adds time to date and returns the resulting date.</doc>
+<arguments>
+<arg>${time}</arg>
+<arg>1 minute</arg>
+<arg>exclude_millis=yes</arg>
+</arguments>
+<assign>
+<var>${time}</var>
+</assign>
+<msg timestamp="20190624 13:02:12.482" level="INFO">${time} = 2019-06-24 13:03:12</msg>
+<status status="PASS" endtime="20190624 13:02:12.482" starttime="20190624 13:02:12.481"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${time}</arg>
+</arguments>
+<status status="PASS" endtime="20190624 13:02:12.483" starttime="20190624 13:02:12.482"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>gps_update</arg>
+<arg>[{"alerts": ["LOCATION","AUXILIARY POWER"],"date_stamp": "${time}","driver": "","latitude": 14.637887187864,"fuel_reading": 0,"id": 1,"vehicle_id": "${testVechile}","speed": 0,"longitude": 121.04112580417495,"direction": 0}]</arg>
+</arguments>
+<assign>
+<var>${auxPower}</var>
+</assign>
+<msg timestamp="20190624 13:02:12.483" level="INFO">${auxPower} = {u'gps_update': u'[{"alerts": ["LOCATION","AUXILIARY POWER"],"date_stamp": "2019-06-24 13:03:12","driver": "","latitude": 14.637887187864,"fuel_reading": 0,"id": 1,"vehicle_id": "tmex1234","speed": 0,...</msg>
+<status status="PASS" endtime="20190624 13:02:12.483" starttime="20190624 13:02:12.483"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>gps_update</arg>
+<arg>[{"alerts": ["LOCATION","MAIN POWER"],"date_stamp": "${time}","driver": "","latitude": 14.637887187864,"fuel_reading": 0,"id": 1,"vehicle_id": "${testVechile}","speed": 0,"longitude": 121.04112580417495,"direction": 0}]</arg>
+</arguments>
+<assign>
+<var>${mainPower}</var>
+</assign>
+<msg timestamp="20190624 13:02:12.484" level="INFO">${mainPower} = {u'gps_update': u'[{"alerts": ["LOCATION","MAIN POWER"],"date_stamp": "2019-06-24 13:03:12","driver": "","latitude": 14.637887187864,"fuel_reading": 0,"id": 1,"vehicle_id": "tmex1234","speed": 0,"long...</msg>
+<status status="PASS" endtime="20190624 13:02:12.484" starttime="20190624 13:02:12.483"></status>
+</kw>
+<kw name="Post Request" library="RequestsLibrary">
+<doc>Send a POST request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>AddData</arg>
+<arg>LocationUpdate?api_key=123</arg>
+<arg>data=${auxPower}</arg>
+<arg>headers=${header}</arg>
+</arguments>
+<assign>
+<var>${response}</var>
+</assign>
+<msg timestamp="20190624 13:02:40.417" level="INFO">Post Request using : alias=AddData, uri=LocationUpdate?api_key=123, data=gps_update=%5B%7B%22alerts%22%3A+%5B%22LOCATION%22%2C%22AUXILIARY+POWER%22%5D%2C%22date_stamp%22%3A+%222019-06-24+13%3A03%3A12%22%2C%22driver%22%3A+%22%22%2C%22latitude%22%3A+14.637887187864%2C%22fuel_reading%22%3A+0%2C%22id%22%3A+1%2C%22vehicle_id%22%3A+%22tmex1234%22%2C%22speed%22%3A+0%2C%22longitude%22%3A+121.04112580417495%2C%22direction%22%3A+0%7D%5D, headers={u'Content-Type': u'application/x-www-form-urlencoded'}, files=None, allow_redirects=True </msg>
+<msg timestamp="20190624 13:02:40.417" level="INFO">C:\Python27\lib\site-packages\urllib3\util\ssl_.py:365: SNIMissingWarning: An HTTPS request has been made, but the SNI (Server Name Indication) extension to TLS is not available on this platform. This may cause the server to present an incorrect TLS certificate, which can cause validation failures. You can upgrade to a newer version of Python to solve this. For more information, see https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  SNIMissingWarning
+C:\Python27\lib\site-packages\urllib3\util\ssl_.py:149: InsecurePlatformWarning: A true SSLContext object is not available. This prevents urllib3 from configuring SSL appropriately and may cause certain SSL connections to fail. You can upgrade to a newer version of Python to solve this. For more information, see https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  InsecurePlatformWarning
+C:\Python27\lib\site-packages\urllib3\connectionpool.py:851: InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  InsecureRequestWarning)</msg>
+<msg timestamp="20190624 13:02:40.419" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" endtime="20190624 13:02:40.420" starttime="20190624 13:02:12.484"></status>
+</kw>
+<kw name="Post Request" library="RequestsLibrary">
+<doc>Send a POST request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>AddData</arg>
+<arg>LocationUpdate?api_key=123</arg>
+<arg>data=${mainPower}</arg>
+<arg>headers=${header}</arg>
+</arguments>
+<assign>
+<var>${response2}</var>
+</assign>
+<msg timestamp="20190624 13:03:07.572" level="INFO">Post Request using : alias=AddData, uri=LocationUpdate?api_key=123, data=gps_update=%5B%7B%22alerts%22%3A+%5B%22LOCATION%22%2C%22MAIN+POWER%22%5D%2C%22date_stamp%22%3A+%222019-06-24+13%3A03%3A12%22%2C%22driver%22%3A+%22%22%2C%22latitude%22%3A+14.637887187864%2C%22fuel_reading%22%3A+0%2C%22id%22%3A+1%2C%22vehicle_id%22%3A+%22tmex1234%22%2C%22speed%22%3A+0%2C%22longitude%22%3A+121.04112580417495%2C%22direction%22%3A+0%7D%5D, headers={u'Content-Type': u'application/x-www-form-urlencoded'}, files=None, allow_redirects=True </msg>
+<msg timestamp="20190624 13:03:07.573" level="INFO">C:\Python27\lib\site-packages\urllib3\connectionpool.py:851: InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  InsecureRequestWarning)</msg>
+<msg timestamp="20190624 13:03:07.575" level="INFO">${response2} = &lt;Response [200]&gt;</msg>
+<status status="PASS" endtime="20190624 13:03:07.575" starttime="20190624 13:02:40.420"></status>
+</kw>
+<status status="PASS" endtime="20190624 13:03:07.575" starttime="20190624 13:02:12.481"></status>
+</kw>
+<kw type="foritem" name="${i} = 1">
+<kw name="Exit For Loop If" library="BuiltIn">
+<doc>Stops executing the enclosing for loop if the ``condition`` is true.</doc>
+<arguments>
+<arg>${i} == 6</arg>
+</arguments>
+<status status="PASS" endtime="20190624 13:03:07.578" starttime="20190624 13:03:07.577"></status>
+</kw>
+<kw name="Add Time To Date" library="DateTime">
+<doc>Adds time to date and returns the resulting date.</doc>
+<arguments>
+<arg>${time}</arg>
+<arg>1 minute</arg>
+<arg>exclude_millis=yes</arg>
+</arguments>
+<assign>
+<var>${time}</var>
+</assign>
+<msg timestamp="20190624 13:03:07.581" level="INFO">${time} = 2019-06-24 13:04:12</msg>
+<status status="PASS" endtime="20190624 13:03:07.581" starttime="20190624 13:03:07.579"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${time}</arg>
+</arguments>
+<status status="PASS" endtime="20190624 13:03:07.584" starttime="20190624 13:03:07.582"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>gps_update</arg>
+<arg>[{"alerts": ["LOCATION","AUXILIARY POWER"],"date_stamp": "${time}","driver": "","latitude": 14.637887187864,"fuel_reading": 0,"id": 1,"vehicle_id": "${testVechile}","speed": 0,"longitude": 121.04112580417495,"direction": 0}]</arg>
+</arguments>
+<assign>
+<var>${auxPower}</var>
+</assign>
+<msg timestamp="20190624 13:03:07.586" level="INFO">${auxPower} = {u'gps_update': u'[{"alerts": ["LOCATION","AUXILIARY POWER"],"date_stamp": "2019-06-24 13:04:12","driver": "","latitude": 14.637887187864,"fuel_reading": 0,"id": 1,"vehicle_id": "tmex1234","speed": 0,...</msg>
+<status status="PASS" endtime="20190624 13:03:07.587" starttime="20190624 13:03:07.584"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>gps_update</arg>
+<arg>[{"alerts": ["LOCATION","MAIN POWER"],"date_stamp": "${time}","driver": "","latitude": 14.637887187864,"fuel_reading": 0,"id": 1,"vehicle_id": "${testVechile}","speed": 0,"longitude": 121.04112580417495,"direction": 0}]</arg>
+</arguments>
+<assign>
+<var>${mainPower}</var>
+</assign>
+<msg timestamp="20190624 13:03:07.589" level="INFO">${mainPower} = {u'gps_update': u'[{"alerts": ["LOCATION","MAIN POWER"],"date_stamp": "2019-06-24 13:04:12","driver": "","latitude": 14.637887187864,"fuel_reading": 0,"id": 1,"vehicle_id": "tmex1234","speed": 0,"long...</msg>
+<status status="PASS" endtime="20190624 13:03:07.589" starttime="20190624 13:03:07.587"></status>
+</kw>
+<kw name="Post Request" library="RequestsLibrary">
+<doc>Send a POST request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>AddData</arg>
+<arg>LocationUpdate?api_key=123</arg>
+<arg>data=${auxPower}</arg>
+<arg>headers=${header}</arg>
+</arguments>
+<assign>
+<var>${response}</var>
+</assign>
+<msg timestamp="20190624 13:03:36.954" level="INFO">Post Request using : alias=AddData, uri=LocationUpdate?api_key=123, data=gps_update=%5B%7B%22alerts%22%3A+%5B%22LOCATION%22%2C%22AUXILIARY+POWER%22%5D%2C%22date_stamp%22%3A+%222019-06-24+13%3A04%3A12%22%2C%22driver%22%3A+%22%22%2C%22latitude%22%3A+14.637887187864%2C%22fuel_reading%22%3A+0%2C%22id%22%3A+1%2C%22vehicle_id%22%3A+%22tmex1234%22%2C%22speed%22%3A+0%2C%22longitude%22%3A+121.04112580417495%2C%22direction%22%3A+0%7D%5D, headers={u'Content-Type': u'application/x-www-form-urlencoded'}, files=None, allow_redirects=True </msg>
+<msg timestamp="20190624 13:03:36.954" level="INFO">C:\Python27\lib\site-packages\urllib3\connectionpool.py:851: InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  InsecureRequestWarning)</msg>
+<msg timestamp="20190624 13:03:36.955" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" endtime="20190624 13:03:36.955" starttime="20190624 13:03:07.590"></status>
+</kw>
+<kw name="Post Request" library="RequestsLibrary">
+<doc>Send a POST request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>AddData</arg>
+<arg>LocationUpdate?api_key=123</arg>
+<arg>data=${mainPower}</arg>
+<arg>headers=${header}</arg>
+</arguments>
+<assign>
+<var>${response2}</var>
+</assign>
+<msg timestamp="20190624 13:03:37.533" level="INFO">Post Request using : alias=AddData, uri=LocationUpdate?api_key=123, data=gps_update=%5B%7B%22alerts%22%3A+%5B%22LOCATION%22%2C%22MAIN+POWER%22%5D%2C%22date_stamp%22%3A+%222019-06-24+13%3A04%3A12%22%2C%22driver%22%3A+%22%22%2C%22latitude%22%3A+14.637887187864%2C%22fuel_reading%22%3A+0%2C%22id%22%3A+1%2C%22vehicle_id%22%3A+%22tmex1234%22%2C%22speed%22%3A+0%2C%22longitude%22%3A+121.04112580417495%2C%22direction%22%3A+0%7D%5D, headers={u'Content-Type': u'application/x-www-form-urlencoded'}, files=None, allow_redirects=True </msg>
+<msg timestamp="20190624 13:03:37.533" level="INFO">C:\Python27\lib\site-packages\urllib3\connectionpool.py:851: InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  InsecureRequestWarning)</msg>
+<msg timestamp="20190624 13:03:37.534" level="INFO">${response2} = &lt;Response [200]&gt;</msg>
+<status status="PASS" endtime="20190624 13:03:37.534" starttime="20190624 13:03:36.955"></status>
+</kw>
+<status status="PASS" endtime="20190624 13:03:37.534" starttime="20190624 13:03:07.576"></status>
+</kw>
+<kw type="foritem" name="${i} = 2">
+<kw name="Exit For Loop If" library="BuiltIn">
+<doc>Stops executing the enclosing for loop if the ``condition`` is true.</doc>
+<arguments>
+<arg>${i} == 6</arg>
+</arguments>
+<status status="PASS" endtime="20190624 13:03:37.535" starttime="20190624 13:03:37.535"></status>
+</kw>
+<kw name="Add Time To Date" library="DateTime">
+<doc>Adds time to date and returns the resulting date.</doc>
+<arguments>
+<arg>${time}</arg>
+<arg>1 minute</arg>
+<arg>exclude_millis=yes</arg>
+</arguments>
+<assign>
+<var>${time}</var>
+</assign>
+<msg timestamp="20190624 13:03:37.536" level="INFO">${time} = 2019-06-24 13:05:12</msg>
+<status status="PASS" endtime="20190624 13:03:37.536" starttime="20190624 13:03:37.536"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${time}</arg>
+</arguments>
+<status status="PASS" endtime="20190624 13:03:37.539" starttime="20190624 13:03:37.537"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>gps_update</arg>
+<arg>[{"alerts": ["LOCATION","AUXILIARY POWER"],"date_stamp": "${time}","driver": "","latitude": 14.637887187864,"fuel_reading": 0,"id": 1,"vehicle_id": "${testVechile}","speed": 0,"longitude": 121.04112580417495,"direction": 0}]</arg>
+</arguments>
+<assign>
+<var>${auxPower}</var>
+</assign>
+<msg timestamp="20190624 13:03:37.555" level="INFO">${auxPower} = {u'gps_update': u'[{"alerts": ["LOCATION","AUXILIARY POWER"],"date_stamp": "2019-06-24 13:05:12","driver": "","latitude": 14.637887187864,"fuel_reading": 0,"id": 1,"vehicle_id": "tmex1234","speed": 0,...</msg>
+<status status="PASS" endtime="20190624 13:03:37.555" starttime="20190624 13:03:37.539"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>gps_update</arg>
+<arg>[{"alerts": ["LOCATION","MAIN POWER"],"date_stamp": "${time}","driver": "","latitude": 14.637887187864,"fuel_reading": 0,"id": 1,"vehicle_id": "${testVechile}","speed": 0,"longitude": 121.04112580417495,"direction": 0}]</arg>
+</arguments>
+<assign>
+<var>${mainPower}</var>
+</assign>
+<msg timestamp="20190624 13:03:37.556" level="INFO">${mainPower} = {u'gps_update': u'[{"alerts": ["LOCATION","MAIN POWER"],"date_stamp": "2019-06-24 13:05:12","driver": "","latitude": 14.637887187864,"fuel_reading": 0,"id": 1,"vehicle_id": "tmex1234","speed": 0,"long...</msg>
+<status status="PASS" endtime="20190624 13:03:37.556" starttime="20190624 13:03:37.556"></status>
+</kw>
+<kw name="Post Request" library="RequestsLibrary">
+<doc>Send a POST request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>AddData</arg>
+<arg>LocationUpdate?api_key=123</arg>
+<arg>data=${auxPower}</arg>
+<arg>headers=${header}</arg>
+</arguments>
+<assign>
+<var>${response}</var>
+</assign>
+<msg timestamp="20190624 13:04:42.655" level="INFO">Post Request using : alias=AddData, uri=LocationUpdate?api_key=123, data=gps_update=%5B%7B%22alerts%22%3A+%5B%22LOCATION%22%2C%22AUXILIARY+POWER%22%5D%2C%22date_stamp%22%3A+%222019-06-24+13%3A05%3A12%22%2C%22driver%22%3A+%22%22%2C%22latitude%22%3A+14.637887187864%2C%22fuel_reading%22%3A+0%2C%22id%22%3A+1%2C%22vehicle_id%22%3A+%22tmex1234%22%2C%22speed%22%3A+0%2C%22longitude%22%3A+121.04112580417495%2C%22direction%22%3A+0%7D%5D, headers={u'Content-Type': u'application/x-www-form-urlencoded'}, files=None, allow_redirects=True </msg>
+<msg timestamp="20190624 13:04:42.655" level="INFO">C:\Python27\lib\site-packages\urllib3\connectionpool.py:851: InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  InsecureRequestWarning)</msg>
+<msg timestamp="20190624 13:04:42.657" level="INFO">${response} = &lt;Response [502]&gt;</msg>
+<status status="PASS" endtime="20190624 13:04:42.657" starttime="20190624 13:03:37.556"></status>
+</kw>
+<kw name="Post Request" library="RequestsLibrary">
+<doc>Send a POST request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>AddData</arg>
+<arg>LocationUpdate?api_key=123</arg>
+<arg>data=${mainPower}</arg>
+<arg>headers=${header}</arg>
+</arguments>
+<assign>
+<var>${response2}</var>
+</assign>
+<msg timestamp="20190624 13:05:36.800" level="INFO">Post Request using : alias=AddData, uri=LocationUpdate?api_key=123, data=gps_update=%5B%7B%22alerts%22%3A+%5B%22LOCATION%22%2C%22MAIN+POWER%22%5D%2C%22date_stamp%22%3A+%222019-06-24+13%3A05%3A12%22%2C%22driver%22%3A+%22%22%2C%22latitude%22%3A+14.637887187864%2C%22fuel_reading%22%3A+0%2C%22id%22%3A+1%2C%22vehicle_id%22%3A+%22tmex1234%22%2C%22speed%22%3A+0%2C%22longitude%22%3A+121.04112580417495%2C%22direction%22%3A+0%7D%5D, headers={u'Content-Type': u'application/x-www-form-urlencoded'}, files=None, allow_redirects=True </msg>
+<msg timestamp="20190624 13:05:36.800" level="INFO">C:\Python27\lib\site-packages\urllib3\connectionpool.py:851: InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  InsecureRequestWarning)</msg>
+<msg timestamp="20190624 13:05:36.802" level="INFO">${response2} = &lt;Response [200]&gt;</msg>
+<status status="PASS" endtime="20190624 13:05:36.802" starttime="20190624 13:04:42.658"></status>
+</kw>
+<status status="PASS" endtime="20190624 13:05:36.803" starttime="20190624 13:03:37.534"></status>
+</kw>
+<kw type="foritem" name="${i} = 3">
+<kw name="Exit For Loop If" library="BuiltIn">
+<doc>Stops executing the enclosing for loop if the ``condition`` is true.</doc>
+<arguments>
+<arg>${i} == 6</arg>
+</arguments>
+<status status="PASS" endtime="20190624 13:05:36.805" starttime="20190624 13:05:36.804"></status>
+</kw>
+<kw name="Add Time To Date" library="DateTime">
+<doc>Adds time to date and returns the resulting date.</doc>
+<arguments>
+<arg>${time}</arg>
+<arg>1 minute</arg>
+<arg>exclude_millis=yes</arg>
+</arguments>
+<assign>
+<var>${time}</var>
+</assign>
+<msg timestamp="20190624 13:05:36.808" level="INFO">${time} = 2019-06-24 13:06:12</msg>
+<status status="PASS" endtime="20190624 13:05:36.808" starttime="20190624 13:05:36.806"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${time}</arg>
+</arguments>
+<status status="PASS" endtime="20190624 13:05:36.812" starttime="20190624 13:05:36.808"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>gps_update</arg>
+<arg>[{"alerts": ["LOCATION","AUXILIARY POWER"],"date_stamp": "${time}","driver": "","latitude": 14.637887187864,"fuel_reading": 0,"id": 1,"vehicle_id": "${testVechile}","speed": 0,"longitude": 121.04112580417495,"direction": 0}]</arg>
+</arguments>
+<assign>
+<var>${auxPower}</var>
+</assign>
+<msg timestamp="20190624 13:05:36.814" level="INFO">${auxPower} = {u'gps_update': u'[{"alerts": ["LOCATION","AUXILIARY POWER"],"date_stamp": "2019-06-24 13:06:12","driver": "","latitude": 14.637887187864,"fuel_reading": 0,"id": 1,"vehicle_id": "tmex1234","speed": 0,...</msg>
+<status status="PASS" endtime="20190624 13:05:36.815" starttime="20190624 13:05:36.812"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>gps_update</arg>
+<arg>[{"alerts": ["LOCATION","MAIN POWER"],"date_stamp": "${time}","driver": "","latitude": 14.637887187864,"fuel_reading": 0,"id": 1,"vehicle_id": "${testVechile}","speed": 0,"longitude": 121.04112580417495,"direction": 0}]</arg>
+</arguments>
+<assign>
+<var>${mainPower}</var>
+</assign>
+<msg timestamp="20190624 13:05:36.817" level="INFO">${mainPower} = {u'gps_update': u'[{"alerts": ["LOCATION","MAIN POWER"],"date_stamp": "2019-06-24 13:06:12","driver": "","latitude": 14.637887187864,"fuel_reading": 0,"id": 1,"vehicle_id": "tmex1234","speed": 0,"long...</msg>
+<status status="PASS" endtime="20190624 13:05:36.817" starttime="20190624 13:05:36.815"></status>
+</kw>
+<kw name="Post Request" library="RequestsLibrary">
+<doc>Send a POST request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>AddData</arg>
+<arg>LocationUpdate?api_key=123</arg>
+<arg>data=${auxPower}</arg>
+<arg>headers=${header}</arg>
+</arguments>
+<assign>
+<var>${response}</var>
+</assign>
+<msg timestamp="20190624 13:06:41.922" level="INFO">Post Request using : alias=AddData, uri=LocationUpdate?api_key=123, data=gps_update=%5B%7B%22alerts%22%3A+%5B%22LOCATION%22%2C%22AUXILIARY+POWER%22%5D%2C%22date_stamp%22%3A+%222019-06-24+13%3A06%3A12%22%2C%22driver%22%3A+%22%22%2C%22latitude%22%3A+14.637887187864%2C%22fuel_reading%22%3A+0%2C%22id%22%3A+1%2C%22vehicle_id%22%3A+%22tmex1234%22%2C%22speed%22%3A+0%2C%22longitude%22%3A+121.04112580417495%2C%22direction%22%3A+0%7D%5D, headers={u'Content-Type': u'application/x-www-form-urlencoded'}, files=None, allow_redirects=True </msg>
+<msg timestamp="20190624 13:06:41.922" level="INFO">C:\Python27\lib\site-packages\urllib3\connectionpool.py:851: InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  InsecureRequestWarning)</msg>
+<msg timestamp="20190624 13:06:41.924" level="INFO">${response} = &lt;Response [502]&gt;</msg>
+<status status="PASS" endtime="20190624 13:06:41.924" starttime="20190624 13:05:36.818"></status>
+</kw>
+<kw name="Post Request" library="RequestsLibrary">
+<doc>Send a POST request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>AddData</arg>
+<arg>LocationUpdate?api_key=123</arg>
+<arg>data=${mainPower}</arg>
+<arg>headers=${header}</arg>
+</arguments>
+<assign>
+<var>${response2}</var>
+</assign>
+<msg timestamp="20190624 13:07:47.023" level="INFO">Post Request using : alias=AddData, uri=LocationUpdate?api_key=123, data=gps_update=%5B%7B%22alerts%22%3A+%5B%22LOCATION%22%2C%22MAIN+POWER%22%5D%2C%22date_stamp%22%3A+%222019-06-24+13%3A06%3A12%22%2C%22driver%22%3A+%22%22%2C%22latitude%22%3A+14.637887187864%2C%22fuel_reading%22%3A+0%2C%22id%22%3A+1%2C%22vehicle_id%22%3A+%22tmex1234%22%2C%22speed%22%3A+0%2C%22longitude%22%3A+121.04112580417495%2C%22direction%22%3A+0%7D%5D, headers={u'Content-Type': u'application/x-www-form-urlencoded'}, files=None, allow_redirects=True </msg>
+<msg timestamp="20190624 13:07:47.024" level="INFO">C:\Python27\lib\site-packages\urllib3\connectionpool.py:851: InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  InsecureRequestWarning)</msg>
+<msg timestamp="20190624 13:07:47.025" level="INFO">${response2} = &lt;Response [502]&gt;</msg>
+<status status="PASS" endtime="20190624 13:07:47.025" starttime="20190624 13:06:41.925"></status>
+</kw>
+<status status="PASS" endtime="20190624 13:07:47.025" starttime="20190624 13:05:36.803"></status>
+</kw>
+<kw type="foritem" name="${i} = 4">
+<kw name="Exit For Loop If" library="BuiltIn">
+<doc>Stops executing the enclosing for loop if the ``condition`` is true.</doc>
+<arguments>
+<arg>${i} == 6</arg>
+</arguments>
+<status status="PASS" endtime="20190624 13:07:47.025" starttime="20190624 13:07:47.025"></status>
+</kw>
+<kw name="Add Time To Date" library="DateTime">
+<doc>Adds time to date and returns the resulting date.</doc>
+<arguments>
+<arg>${time}</arg>
+<arg>1 minute</arg>
+<arg>exclude_millis=yes</arg>
+</arguments>
+<assign>
+<var>${time}</var>
+</assign>
+<msg timestamp="20190624 13:07:47.026" level="INFO">${time} = 2019-06-24 13:07:12</msg>
+<status status="PASS" endtime="20190624 13:07:47.027" starttime="20190624 13:07:47.026"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${time}</arg>
+</arguments>
+<status status="PASS" endtime="20190624 13:07:47.027" starttime="20190624 13:07:47.027"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>gps_update</arg>
+<arg>[{"alerts": ["LOCATION","AUXILIARY POWER"],"date_stamp": "${time}","driver": "","latitude": 14.637887187864,"fuel_reading": 0,"id": 1,"vehicle_id": "${testVechile}","speed": 0,"longitude": 121.04112580417495,"direction": 0}]</arg>
+</arguments>
+<assign>
+<var>${auxPower}</var>
+</assign>
+<msg timestamp="20190624 13:07:47.028" level="INFO">${auxPower} = {u'gps_update': u'[{"alerts": ["LOCATION","AUXILIARY POWER"],"date_stamp": "2019-06-24 13:07:12","driver": "","latitude": 14.637887187864,"fuel_reading": 0,"id": 1,"vehicle_id": "tmex1234","speed": 0,...</msg>
+<status status="PASS" endtime="20190624 13:07:47.028" starttime="20190624 13:07:47.027"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>gps_update</arg>
+<arg>[{"alerts": ["LOCATION","MAIN POWER"],"date_stamp": "${time}","driver": "","latitude": 14.637887187864,"fuel_reading": 0,"id": 1,"vehicle_id": "${testVechile}","speed": 0,"longitude": 121.04112580417495,"direction": 0}]</arg>
+</arguments>
+<assign>
+<var>${mainPower}</var>
+</assign>
+<msg timestamp="20190624 13:07:47.028" level="INFO">${mainPower} = {u'gps_update': u'[{"alerts": ["LOCATION","MAIN POWER"],"date_stamp": "2019-06-24 13:07:12","driver": "","latitude": 14.637887187864,"fuel_reading": 0,"id": 1,"vehicle_id": "tmex1234","speed": 0,"long...</msg>
+<status status="PASS" endtime="20190624 13:07:47.029" starttime="20190624 13:07:47.028"></status>
+</kw>
+<kw name="Post Request" library="RequestsLibrary">
+<doc>Send a POST request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>AddData</arg>
+<arg>LocationUpdate?api_key=123</arg>
+<arg>data=${auxPower}</arg>
+<arg>headers=${header}</arg>
+</arguments>
+<assign>
+<var>${response}</var>
+</assign>
+<msg timestamp="20190624 13:08:15.561" level="INFO">Post Request using : alias=AddData, uri=LocationUpdate?api_key=123, data=gps_update=%5B%7B%22alerts%22%3A+%5B%22LOCATION%22%2C%22AUXILIARY+POWER%22%5D%2C%22date_stamp%22%3A+%222019-06-24+13%3A07%3A12%22%2C%22driver%22%3A+%22%22%2C%22latitude%22%3A+14.637887187864%2C%22fuel_reading%22%3A+0%2C%22id%22%3A+1%2C%22vehicle_id%22%3A+%22tmex1234%22%2C%22speed%22%3A+0%2C%22longitude%22%3A+121.04112580417495%2C%22direction%22%3A+0%7D%5D, headers={u'Content-Type': u'application/x-www-form-urlencoded'}, files=None, allow_redirects=True </msg>
+<msg timestamp="20190624 13:08:15.562" level="INFO">C:\Python27\lib\site-packages\urllib3\connectionpool.py:851: InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  InsecureRequestWarning)</msg>
+<msg timestamp="20190624 13:08:15.563" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" endtime="20190624 13:08:15.563" starttime="20190624 13:07:47.029"></status>
+</kw>
+<kw name="Post Request" library="RequestsLibrary">
+<doc>Send a POST request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>AddData</arg>
+<arg>LocationUpdate?api_key=123</arg>
+<arg>data=${mainPower}</arg>
+<arg>headers=${header}</arg>
+</arguments>
+<assign>
+<var>${response2}</var>
+</assign>
+<msg timestamp="20190624 13:09:20.666" level="INFO">Post Request using : alias=AddData, uri=LocationUpdate?api_key=123, data=gps_update=%5B%7B%22alerts%22%3A+%5B%22LOCATION%22%2C%22MAIN+POWER%22%5D%2C%22date_stamp%22%3A+%222019-06-24+13%3A07%3A12%22%2C%22driver%22%3A+%22%22%2C%22latitude%22%3A+14.637887187864%2C%22fuel_reading%22%3A+0%2C%22id%22%3A+1%2C%22vehicle_id%22%3A+%22tmex1234%22%2C%22speed%22%3A+0%2C%22longitude%22%3A+121.04112580417495%2C%22direction%22%3A+0%7D%5D, headers={u'Content-Type': u'application/x-www-form-urlencoded'}, files=None, allow_redirects=True </msg>
+<msg timestamp="20190624 13:09:20.666" level="INFO">C:\Python27\lib\site-packages\urllib3\connectionpool.py:851: InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  InsecureRequestWarning)</msg>
+<msg timestamp="20190624 13:09:20.667" level="INFO">${response2} = &lt;Response [502]&gt;</msg>
+<status status="PASS" endtime="20190624 13:09:20.667" starttime="20190624 13:08:15.564"></status>
+</kw>
+<status status="PASS" endtime="20190624 13:09:20.667" starttime="20190624 13:07:47.025"></status>
+</kw>
+<kw type="foritem" name="${i} = 5">
+<kw name="Exit For Loop If" library="BuiltIn">
+<doc>Stops executing the enclosing for loop if the ``condition`` is true.</doc>
+<arguments>
+<arg>${i} == 6</arg>
+</arguments>
+<status status="PASS" endtime="20190624 13:09:20.668" starttime="20190624 13:09:20.668"></status>
+</kw>
+<kw name="Add Time To Date" library="DateTime">
+<doc>Adds time to date and returns the resulting date.</doc>
+<arguments>
+<arg>${time}</arg>
+<arg>1 minute</arg>
+<arg>exclude_millis=yes</arg>
+</arguments>
+<assign>
+<var>${time}</var>
+</assign>
+<msg timestamp="20190624 13:09:20.669" level="INFO">${time} = 2019-06-24 13:08:12</msg>
+<status status="PASS" endtime="20190624 13:09:20.669" starttime="20190624 13:09:20.669"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${time}</arg>
+</arguments>
+<status status="PASS" endtime="20190624 13:09:20.671" starttime="20190624 13:09:20.670"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>gps_update</arg>
+<arg>[{"alerts": ["LOCATION","AUXILIARY POWER"],"date_stamp": "${time}","driver": "","latitude": 14.637887187864,"fuel_reading": 0,"id": 1,"vehicle_id": "${testVechile}","speed": 0,"longitude": 121.04112580417495,"direction": 0}]</arg>
+</arguments>
+<assign>
+<var>${auxPower}</var>
+</assign>
+<msg timestamp="20190624 13:09:20.672" level="INFO">${auxPower} = {u'gps_update': u'[{"alerts": ["LOCATION","AUXILIARY POWER"],"date_stamp": "2019-06-24 13:08:12","driver": "","latitude": 14.637887187864,"fuel_reading": 0,"id": 1,"vehicle_id": "tmex1234","speed": 0,...</msg>
+<status status="PASS" endtime="20190624 13:09:20.672" starttime="20190624 13:09:20.671"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>gps_update</arg>
+<arg>[{"alerts": ["LOCATION","MAIN POWER"],"date_stamp": "${time}","driver": "","latitude": 14.637887187864,"fuel_reading": 0,"id": 1,"vehicle_id": "${testVechile}","speed": 0,"longitude": 121.04112580417495,"direction": 0}]</arg>
+</arguments>
+<assign>
+<var>${mainPower}</var>
+</assign>
+<msg timestamp="20190624 13:09:20.674" level="INFO">${mainPower} = {u'gps_update': u'[{"alerts": ["LOCATION","MAIN POWER"],"date_stamp": "2019-06-24 13:08:12","driver": "","latitude": 14.637887187864,"fuel_reading": 0,"id": 1,"vehicle_id": "tmex1234","speed": 0,"long...</msg>
+<status status="PASS" endtime="20190624 13:09:20.674" starttime="20190624 13:09:20.673"></status>
+</kw>
+<kw name="Post Request" library="RequestsLibrary">
+<doc>Send a POST request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>AddData</arg>
+<arg>LocationUpdate?api_key=123</arg>
+<arg>data=${auxPower}</arg>
+<arg>headers=${header}</arg>
+</arguments>
+<assign>
+<var>${response}</var>
+</assign>
+<msg timestamp="20190624 13:09:46.281" level="INFO">Post Request using : alias=AddData, uri=LocationUpdate?api_key=123, data=gps_update=%5B%7B%22alerts%22%3A+%5B%22LOCATION%22%2C%22AUXILIARY+POWER%22%5D%2C%22date_stamp%22%3A+%222019-06-24+13%3A08%3A12%22%2C%22driver%22%3A+%22%22%2C%22latitude%22%3A+14.637887187864%2C%22fuel_reading%22%3A+0%2C%22id%22%3A+1%2C%22vehicle_id%22%3A+%22tmex1234%22%2C%22speed%22%3A+0%2C%22longitude%22%3A+121.04112580417495%2C%22direction%22%3A+0%7D%5D, headers={u'Content-Type': u'application/x-www-form-urlencoded'}, files=None, allow_redirects=True </msg>
+<msg timestamp="20190624 13:09:46.281" level="INFO">C:\Python27\lib\site-packages\urllib3\connectionpool.py:851: InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  InsecureRequestWarning)</msg>
+<msg timestamp="20190624 13:09:46.281" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" endtime="20190624 13:09:46.281" starttime="20190624 13:09:20.674"></status>
+</kw>
+<kw name="Post Request" library="RequestsLibrary">
+<doc>Send a POST request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>AddData</arg>
+<arg>LocationUpdate?api_key=123</arg>
+<arg>data=${mainPower}</arg>
+<arg>headers=${header}</arg>
+</arguments>
+<assign>
+<var>${response2}</var>
+</assign>
+<msg timestamp="20190624 13:10:17.895" level="INFO">Post Request using : alias=AddData, uri=LocationUpdate?api_key=123, data=gps_update=%5B%7B%22alerts%22%3A+%5B%22LOCATION%22%2C%22MAIN+POWER%22%5D%2C%22date_stamp%22%3A+%222019-06-24+13%3A08%3A12%22%2C%22driver%22%3A+%22%22%2C%22latitude%22%3A+14.637887187864%2C%22fuel_reading%22%3A+0%2C%22id%22%3A+1%2C%22vehicle_id%22%3A+%22tmex1234%22%2C%22speed%22%3A+0%2C%22longitude%22%3A+121.04112580417495%2C%22direction%22%3A+0%7D%5D, headers={u'Content-Type': u'application/x-www-form-urlencoded'}, files=None, allow_redirects=True </msg>
+<msg timestamp="20190624 13:10:17.896" level="INFO">C:\Python27\lib\site-packages\urllib3\connectionpool.py:851: InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  InsecureRequestWarning)</msg>
+<msg timestamp="20190624 13:10:17.897" level="INFO">${response2} = &lt;Response [200]&gt;</msg>
+<status status="PASS" endtime="20190624 13:10:17.897" starttime="20190624 13:09:46.282"></status>
+</kw>
+<status status="PASS" endtime="20190624 13:10:17.898" starttime="20190624 13:09:20.667"></status>
+</kw>
+<kw type="foritem" name="${i} = 6">
+<kw name="Exit For Loop If" library="BuiltIn">
+<doc>Stops executing the enclosing for loop if the ``condition`` is true.</doc>
+<arguments>
+<arg>${i} == 6</arg>
+</arguments>
+<msg timestamp="20190624 13:10:17.900" level="INFO">Exiting for loop altogether.</msg>
+<status status="PASS" endtime="20190624 13:10:17.901" starttime="20190624 13:10:17.899"></status>
+</kw>
+<status status="PASS" endtime="20190624 13:10:17.901" starttime="20190624 13:10:17.898"></status>
+</kw>
+<status status="PASS" endtime="20190624 13:10:17.933" starttime="20190624 13:02:12.451"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${response}</arg>
+</arguments>
+<msg timestamp="20190624 13:10:17.934" level="INFO">&lt;Response [200]&gt;</msg>
+<status status="PASS" endtime="20190624 13:10:17.934" starttime="20190624 13:10:17.933"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${response2}</arg>
+</arguments>
+<msg timestamp="20190624 13:10:17.935" level="INFO">&lt;Response [200]&gt;</msg>
+<status status="PASS" endtime="20190624 13:10:17.935" starttime="20190624 13:10:17.935"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Exited</arg>
+</arguments>
+<msg timestamp="20190624 13:10:17.936" level="INFO">Exited</msg>
+<status status="PASS" endtime="20190624 13:10:17.936" starttime="20190624 13:10:17.935"></status>
+</kw>
+<status status="PASS" endtime="20190624 13:10:17.937" critical="yes" starttime="20190624 13:02:12.432"></status>
+</test>
+<test id="s1-t2" name="Hotspot">
+<kw name="Get Current Date" library="DateTime">
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<arguments>
+<arg>exclude_millis=yes</arg>
+</arguments>
+<assign>
+<var>${myTime}</var>
+</assign>
+<msg timestamp="20190624 13:10:17.940" level="INFO">${myTime} = 2019-06-24 13:10:18</msg>
+<status status="PASS" endtime="20190624 13:10:17.940" starttime="20190624 13:10:17.939"></status>
+</kw>
+<kw name="Convert Date" library="DateTime">
+<doc>Converts between supported `date formats`.</doc>
+<arguments>
+<arg>${myTime}</arg>
+</arguments>
+<assign>
+<var>${time}</var>
+</assign>
+<msg timestamp="20190624 13:10:17.940" level="INFO">${time} = 2019-06-24 13:10:18.000</msg>
+<status status="PASS" endtime="20190624 13:10:17.940" starttime="20190624 13:10:17.940"></status>
+</kw>
+<kw name="Convert Date" library="DateTime">
+<doc>Converts between supported `date formats`.</doc>
+<arguments>
+<arg>${myTime}</arg>
+</arguments>
+<assign>
+<var>${time2}</var>
+</assign>
+<msg timestamp="20190624 13:10:17.941" level="INFO">${time2} = 2019-06-24 13:10:18.000</msg>
+<status status="PASS" endtime="20190624 13:10:17.941" starttime="20190624 13:10:17.941"></status>
+</kw>
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>AddData</arg>
+<arg>${locationURL}</arg>
+</arguments>
+<msg timestamp="20190624 13:10:17.941" level="INFO">Creating Session using : alias=AddData, url=https://services.trackme.com.ph/apis/, headers={},                     cookies=None, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" endtime="20190624 13:10:17.942" starttime="20190624 13:10:17.941"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>Content-Type=application/x-www-form-urlencoded</arg>
+</arguments>
+<assign>
+<var>${header}</var>
+</assign>
+<msg timestamp="20190624 13:10:17.942" level="INFO">${header} = {u'Content-Type': u'application/x-www-form-urlencoded'}</msg>
+<status status="PASS" endtime="20190624 13:10:17.943" starttime="20190624 13:10:17.942"></status>
+</kw>
+<kw name="Subtract Time From Date" library="DateTime">
+<doc>Subtracts time from date and returns the resulting date.</doc>
+<arguments>
+<arg>${time}</arg>
+<arg>5 minute</arg>
+<arg>exclude_millis=yes</arg>
+</arguments>
+<assign>
+<var>${time}</var>
+</assign>
+<msg timestamp="20190624 13:10:17.945" level="INFO">${time} = 2019-06-24 13:05:18</msg>
+<status status="PASS" endtime="20190624 13:10:17.945" starttime="20190624 13:10:17.945"></status>
+</kw>
+<kw name="Subtract Time From Date" library="DateTime">
+<doc>Subtracts time from date and returns the resulting date.</doc>
+<arguments>
+<arg>${time}</arg>
+<arg>5 minute</arg>
+<arg>exclude_millis=yes</arg>
+</arguments>
+<assign>
+<var>${time1}</var>
+</assign>
+<msg timestamp="20190624 13:10:17.946" level="INFO">${time1} = 2019-06-24 13:00:18</msg>
+<status status="PASS" endtime="20190624 13:10:17.946" starttime="20190624 13:10:17.945"></status>
+</kw>
+<kw name="Subtract Time From Date" library="DateTime">
+<doc>Subtracts time from date and returns the resulting date.</doc>
+<arguments>
+<arg>${time1}</arg>
+<arg>5 minute</arg>
+<arg>exclude_millis=yes</arg>
+</arguments>
+<assign>
+<var>${time2}</var>
+</assign>
+<msg timestamp="20190624 13:10:17.946" level="INFO">${time2} = 2019-06-24 12:55:18</msg>
+<status status="PASS" endtime="20190624 13:10:17.946" starttime="20190624 13:10:17.946"></status>
+</kw>
+<kw name="Subtract Time From Date" library="DateTime">
+<doc>Subtracts time from date and returns the resulting date.</doc>
+<arguments>
+<arg>${time2}</arg>
+<arg>5 minute</arg>
+<arg>exclude_millis=yes</arg>
+</arguments>
+<assign>
+<var>${time3}</var>
+</assign>
+<msg timestamp="20190624 13:10:17.947" level="INFO">${time3} = 2019-06-24 12:50:18</msg>
+<status status="PASS" endtime="20190624 13:10:17.947" starttime="20190624 13:10:17.947"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>gps_update</arg>
+<arg>[{"alerts": ["LOCATION"],"date_stamp": "${time3}","driver": "","latitude": ${terminalLat},"fuel_reading": 0,"id": 1,"vehicle_id": "${testVechile}","speed": 0,"longitude": ${terminalLong},"direction": 0}]</arg>
+</arguments>
+<assign>
+<var>${moveVehicleToTerminal}</var>
+</assign>
+<msg timestamp="20190624 13:10:17.948" level="INFO">${moveVehicleToTerminal} = {u'gps_update': u'[{"alerts": ["LOCATION"],"date_stamp": "2019-06-24 12:50:18","driver": "","latitude": 14.659554345499211,"fuel_reading": 0,"id": 1,"vehicle_id": "tmex1234","speed": 0,"longitude": 12...</msg>
+<status status="PASS" endtime="20190624 13:10:17.948" starttime="20190624 13:10:17.948"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>gps_update</arg>
+<arg>[{"alerts": ["LOCATION"],"date_stamp": "${time2}","driver": "","latitude": ${garageLat},"fuel_reading": 0,"id": 1,"vehicle_id": "${testVechile}","speed": 0,"longitude": ${garageLong},"direction": 0}]</arg>
+</arguments>
+<assign>
+<var>${moveVehicleToGarage}</var>
+</assign>
+<msg timestamp="20190624 13:10:17.949" level="INFO">${moveVehicleToGarage} = {u'gps_update': u'[{"alerts": ["LOCATION"],"date_stamp": "2019-06-24 12:55:18","driver": "","latitude": 14.637981475682626,"fuel_reading": 0,"id": 1,"vehicle_id": "tmex1234","speed": 0,"longitude": 12...</msg>
+<status status="PASS" endtime="20190624 13:10:17.949" starttime="20190624 13:10:17.948"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>gps_update</arg>
+<arg>[{"alerts": ["LOCATION"],"date_stamp": "${time1}","driver": "","latitude": ${hotspotLat},"fuel_reading": 0,"id": 1,"vehicle_id": "${testVechile}","speed": 0,"longitude": ${hotspotLong},"direction": 0}]</arg>
+</arguments>
+<assign>
+<var>${moveVehicleToHotspot}</var>
+</assign>
+<msg timestamp="20190624 13:10:17.950" level="INFO">${moveVehicleToHotspot} = {u'gps_update': u'[{"alerts": ["LOCATION"],"date_stamp": "2019-06-24 13:00:18","driver": "","latitude": 14.664047254177236,"fuel_reading": 0,"id": 1,"vehicle_id": "tmex1234","speed": 0,"longitude": 12...</msg>
+<status status="PASS" endtime="20190624 13:10:17.950" starttime="20190624 13:10:17.949"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>gps_update</arg>
+<arg>[{"alerts": ["LOCATION"],"date_stamp": "${time}","driver": "","latitude": ${terminalLat},"fuel_reading": 0,"id": 1,"vehicle_id": "${testVechile}","speed": 0,"longitude": ${terminalLong},"direction": 0}]</arg>
+</arguments>
+<assign>
+<var>${moveVehicleToTerminal1}</var>
+</assign>
+<msg timestamp="20190624 13:10:17.950" level="INFO">${moveVehicleToTerminal1} = {u'gps_update': u'[{"alerts": ["LOCATION"],"date_stamp": "2019-06-24 13:05:18","driver": "","latitude": 14.659554345499211,"fuel_reading": 0,"id": 1,"vehicle_id": "tmex1234","speed": 0,"longitude": 12...</msg>
+<status status="PASS" endtime="20190624 13:10:17.950" starttime="20190624 13:10:17.950"></status>
+</kw>
+<kw name="Post Request" library="RequestsLibrary">
+<doc>Send a POST request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>AddData</arg>
+<arg>LocationUpdate?api_key=123</arg>
+<arg>data=${moveVehicleToTerminal}</arg>
+<arg>headers=${header}</arg>
+</arguments>
+<assign>
+<var>${response}</var>
+</assign>
+<msg timestamp="20190624 13:10:47.757" level="INFO">Post Request using : alias=AddData, uri=LocationUpdate?api_key=123, data=gps_update=%5B%7B%22alerts%22%3A+%5B%22LOCATION%22%5D%2C%22date_stamp%22%3A+%222019-06-24+12%3A50%3A18%22%2C%22driver%22%3A+%22%22%2C%22latitude%22%3A+14.659554345499211%2C%22fuel_reading%22%3A+0%2C%22id%22%3A+1%2C%22vehicle_id%22%3A+%22tmex1234%22%2C%22speed%22%3A+0%2C%22longitude%22%3A+121.0544228553772%2C%22direction%22%3A+0%7D%5D, headers={u'Content-Type': u'application/x-www-form-urlencoded'}, files=None, allow_redirects=True </msg>
+<msg timestamp="20190624 13:10:47.757" level="INFO">C:\Python27\lib\site-packages\urllib3\util\ssl_.py:149: InsecurePlatformWarning: A true SSLContext object is not available. This prevents urllib3 from configuring SSL appropriately and may cause certain SSL connections to fail. You can upgrade to a newer version of Python to solve this. For more information, see https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  InsecurePlatformWarning
+C:\Python27\lib\site-packages\urllib3\connectionpool.py:851: InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  InsecureRequestWarning)</msg>
+<msg timestamp="20190624 13:10:47.758" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" endtime="20190624 13:10:47.758" starttime="20190624 13:10:17.951"></status>
+</kw>
+<kw name="Post Request" library="RequestsLibrary">
+<doc>Send a POST request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>AddData</arg>
+<arg>LocationUpdate?api_key=123</arg>
+<arg>data=${moveVehicleToGarage}</arg>
+<arg>headers=${header}</arg>
+</arguments>
+<assign>
+<var>${response1}</var>
+</assign>
+<msg timestamp="20190624 13:11:52.853" level="INFO">Post Request using : alias=AddData, uri=LocationUpdate?api_key=123, data=gps_update=%5B%7B%22alerts%22%3A+%5B%22LOCATION%22%5D%2C%22date_stamp%22%3A+%222019-06-24+12%3A55%3A18%22%2C%22driver%22%3A+%22%22%2C%22latitude%22%3A+14.637981475682626%2C%22fuel_reading%22%3A+0%2C%22id%22%3A+1%2C%22vehicle_id%22%3A+%22tmex1234%22%2C%22speed%22%3A+0%2C%22longitude%22%3A+121.04110341365526%2C%22direction%22%3A+0%7D%5D, headers={u'Content-Type': u'application/x-www-form-urlencoded'}, files=None, allow_redirects=True </msg>
+<msg timestamp="20190624 13:11:52.853" level="INFO">C:\Python27\lib\site-packages\urllib3\connectionpool.py:851: InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  InsecureRequestWarning)</msg>
+<msg timestamp="20190624 13:11:52.854" level="INFO">${response1} = &lt;Response [502]&gt;</msg>
+<status status="PASS" endtime="20190624 13:11:52.854" starttime="20190624 13:10:47.760"></status>
+</kw>
+<kw name="Post Request" library="RequestsLibrary">
+<doc>Send a POST request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>AddData</arg>
+<arg>LocationUpdate?api_key=123</arg>
+<arg>data=${moveVehicleToHotspot}</arg>
+<arg>headers=${header}</arg>
+</arguments>
+<assign>
+<var>${response2}</var>
+</assign>
+<msg timestamp="20190624 13:12:21.383" level="INFO">Post Request using : alias=AddData, uri=LocationUpdate?api_key=123, data=gps_update=%5B%7B%22alerts%22%3A+%5B%22LOCATION%22%5D%2C%22date_stamp%22%3A+%222019-06-24+13%3A00%3A18%22%2C%22driver%22%3A+%22%22%2C%22latitude%22%3A+14.664047254177236%2C%22fuel_reading%22%3A+0%2C%22id%22%3A+1%2C%22vehicle_id%22%3A+%22tmex1234%22%2C%22speed%22%3A+0%2C%22longitude%22%3A+121.0441413970292%2C%22direction%22%3A+0%7D%5D, headers={u'Content-Type': u'application/x-www-form-urlencoded'}, files=None, allow_redirects=True </msg>
+<msg timestamp="20190624 13:12:21.383" level="INFO">C:\Python27\lib\site-packages\urllib3\connectionpool.py:851: InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  InsecureRequestWarning)</msg>
+<msg timestamp="20190624 13:12:21.384" level="INFO">${response2} = &lt;Response [200]&gt;</msg>
+<status status="PASS" endtime="20190624 13:12:21.384" starttime="20190624 13:11:52.854"></status>
+</kw>
+<kw name="Post Request" library="RequestsLibrary">
+<doc>Send a POST request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>AddData</arg>
+<arg>LocationUpdate?api_key=123</arg>
+<arg>data=${moveVehicleToTerminal1}</arg>
+<arg>headers=${header}</arg>
+</arguments>
+<assign>
+<var>${response3}</var>
+</assign>
+<msg timestamp="20190624 13:13:06.702" level="INFO">Post Request using : alias=AddData, uri=LocationUpdate?api_key=123, data=gps_update=%5B%7B%22alerts%22%3A+%5B%22LOCATION%22%5D%2C%22date_stamp%22%3A+%222019-06-24+13%3A05%3A18%22%2C%22driver%22%3A+%22%22%2C%22latitude%22%3A+14.659554345499211%2C%22fuel_reading%22%3A+0%2C%22id%22%3A+1%2C%22vehicle_id%22%3A+%22tmex1234%22%2C%22speed%22%3A+0%2C%22longitude%22%3A+121.0544228553772%2C%22direction%22%3A+0%7D%5D, headers={u'Content-Type': u'application/x-www-form-urlencoded'}, files=None, allow_redirects=True </msg>
+<msg timestamp="20190624 13:13:06.703" level="INFO">C:\Python27\lib\site-packages\urllib3\connectionpool.py:851: InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  InsecureRequestWarning)</msg>
+<msg timestamp="20190624 13:13:06.704" level="INFO">${response3} = &lt;Response [200]&gt;</msg>
+<status status="PASS" endtime="20190624 13:13:06.704" starttime="20190624 13:12:21.387"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${moveVehicleToTerminal}</arg>
+</arguments>
+<msg timestamp="20190624 13:13:06.708" level="INFO">{u'gps_update': u'[{"alerts": ["LOCATION"],"date_stamp": "2019-06-24 12:50:18","driver": "","latitude": 14.659554345499211,"fuel_reading": 0,"id": 1,"vehicle_id": "tmex1234","speed": 0,"longitude": 121.0544228553772,"direction": 0}]'}</msg>
+<status status="PASS" endtime="20190624 13:13:06.709" starttime="20190624 13:13:06.707"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${moveVehicleToGarage}</arg>
+</arguments>
+<msg timestamp="20190624 13:13:06.711" level="INFO">{u'gps_update': u'[{"alerts": ["LOCATION"],"date_stamp": "2019-06-24 12:55:18","driver": "","latitude": 14.637981475682626,"fuel_reading": 0,"id": 1,"vehicle_id": "tmex1234","speed": 0,"longitude": 121.04110341365526,"direction": 0}]'}</msg>
+<status status="PASS" endtime="20190624 13:13:06.712" starttime="20190624 13:13:06.710"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${moveVehicleToHotspot}</arg>
+</arguments>
+<msg timestamp="20190624 13:13:06.714" level="INFO">{u'gps_update': u'[{"alerts": ["LOCATION"],"date_stamp": "2019-06-24 13:00:18","driver": "","latitude": 14.664047254177236,"fuel_reading": 0,"id": 1,"vehicle_id": "tmex1234","speed": 0,"longitude": 121.0441413970292,"direction": 0}]'}</msg>
+<status status="PASS" endtime="20190624 13:13:06.714" starttime="20190624 13:13:06.713"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${moveVehicleToTerminal1}</arg>
+</arguments>
+<msg timestamp="20190624 13:13:06.717" level="INFO">{u'gps_update': u'[{"alerts": ["LOCATION"],"date_stamp": "2019-06-24 13:05:18","driver": "","latitude": 14.659554345499211,"fuel_reading": 0,"id": 1,"vehicle_id": "tmex1234","speed": 0,"longitude": 121.0544228553772,"direction": 0}]'}</msg>
+<status status="PASS" endtime="20190624 13:13:06.717" starttime="20190624 13:13:06.716"></status>
+</kw>
+<status status="PASS" endtime="20190624 13:13:06.719" critical="yes" starttime="20190624 13:10:17.939"></status>
+</test>
+<test id="s1-t3" name="Emergency">
+<kw name="Get Current Date" library="DateTime">
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<arguments>
+<arg>exclude_millis=yes</arg>
+</arguments>
+<assign>
+<var>${myTime}</var>
+</assign>
+<msg timestamp="20190624 13:13:06.735" level="INFO">${myTime} = 2019-06-24 13:13:07</msg>
+<status status="PASS" endtime="20190624 13:13:06.735" starttime="20190624 13:13:06.734"></status>
+</kw>
+<kw name="Convert Date" library="DateTime">
+<doc>Converts between supported `date formats`.</doc>
+<arguments>
+<arg>${myTime}</arg>
+</arguments>
+<assign>
+<var>${time}</var>
+</assign>
+<msg timestamp="20190624 13:13:06.738" level="INFO">${time} = 2019-06-24 13:13:07.000</msg>
+<status status="PASS" endtime="20190624 13:13:06.738" starttime="20190624 13:13:06.737"></status>
+</kw>
+<kw name="Convert Date" library="DateTime">
+<doc>Converts between supported `date formats`.</doc>
+<arguments>
+<arg>${myTime}</arg>
+</arguments>
+<assign>
+<var>${time2}</var>
+</assign>
+<msg timestamp="20190624 13:13:06.741" level="INFO">${time2} = 2019-06-24 13:13:07.000</msg>
+<status status="PASS" endtime="20190624 13:13:06.741" starttime="20190624 13:13:06.740"></status>
+</kw>
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>AddData</arg>
+<arg>${locationURL}</arg>
+</arguments>
+<msg timestamp="20190624 13:13:06.744" level="INFO">Creating Session using : alias=AddData, url=https://services.trackme.com.ph/apis/, headers={},                     cookies=None, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" endtime="20190624 13:13:06.745" starttime="20190624 13:13:06.743"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>Content-Type=application/x-www-form-urlencoded</arg>
+</arguments>
+<assign>
+<var>${header}</var>
+</assign>
+<msg timestamp="20190624 13:13:06.749" level="INFO">${header} = {u'Content-Type': u'application/x-www-form-urlencoded'}</msg>
+<status status="PASS" endtime="20190624 13:13:06.749" starttime="20190624 13:13:06.747"></status>
+</kw>
+<kw name="Subtract Time From Date" library="DateTime">
+<doc>Subtracts time from date and returns the resulting date.</doc>
+<arguments>
+<arg>${time}</arg>
+<arg>5 minute</arg>
+<arg>exclude_millis=yes</arg>
+</arguments>
+<assign>
+<var>${time}</var>
+</assign>
+<msg timestamp="20190624 13:13:06.752" level="INFO">${time} = 2019-06-24 13:08:07</msg>
+<status status="PASS" endtime="20190624 13:13:06.753" starttime="20190624 13:13:06.750"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>gps_update</arg>
+<arg>[{"alerts": ["LOCATION","EMERGENCY"],"date_stamp": "${time}","driver": "","latitude": ${hotspotLat},"fuel_reading": 0,"id": 1,"vehicle_id": "${emergency}","speed": 0,"longitude": ${hotspotLong},"direction": 0}]</arg>
+</arguments>
+<assign>
+<var>${moveVehicleToTerminal1}</var>
+</assign>
+<msg timestamp="20190624 13:13:06.756" level="INFO">${moveVehicleToTerminal1} = {u'gps_update': u'[{"alerts": ["LOCATION","EMERGENCY"],"date_stamp": "2019-06-24 13:08:07","driver": "","latitude": 14.664047254177236,"fuel_reading": 0,"id": 1,"vehicle_id": "tmex-121","speed": 0,"lo...</msg>
+<status status="PASS" endtime="20190624 13:13:06.756" starttime="20190624 13:13:06.754"></status>
+</kw>
+<kw name="Post Request" library="RequestsLibrary">
+<doc>Send a POST request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>AddData</arg>
+<arg>LocationUpdate?api_key=123</arg>
+<arg>data=${moveVehicleToTerminal1}</arg>
+<arg>headers=${header}</arg>
+</arguments>
+<assign>
+<var>${response3}</var>
+</assign>
+<msg timestamp="20190624 13:13:37.772" level="INFO">Post Request using : alias=AddData, uri=LocationUpdate?api_key=123, data=gps_update=%5B%7B%22alerts%22%3A+%5B%22LOCATION%22%2C%22EMERGENCY%22%5D%2C%22date_stamp%22%3A+%222019-06-24+13%3A08%3A07%22%2C%22driver%22%3A+%22%22%2C%22latitude%22%3A+14.664047254177236%2C%22fuel_reading%22%3A+0%2C%22id%22%3A+1%2C%22vehicle_id%22%3A+%22tmex-121%22%2C%22speed%22%3A+0%2C%22longitude%22%3A+121.0441413970292%2C%22direction%22%3A+0%7D%5D, headers={u'Content-Type': u'application/x-www-form-urlencoded'}, files=None, allow_redirects=True </msg>
+<msg timestamp="20190624 13:13:37.772" level="INFO">C:\Python27\lib\site-packages\urllib3\util\ssl_.py:149: InsecurePlatformWarning: A true SSLContext object is not available. This prevents urllib3 from configuring SSL appropriately and may cause certain SSL connections to fail. You can upgrade to a newer version of Python to solve this. For more information, see https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  InsecurePlatformWarning
+C:\Python27\lib\site-packages\urllib3\connectionpool.py:851: InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  InsecureRequestWarning)</msg>
+<msg timestamp="20190624 13:13:37.773" level="INFO">${response3} = &lt;Response [200]&gt;</msg>
+<status status="PASS" endtime="20190624 13:13:37.773" starttime="20190624 13:13:06.758"></status>
+</kw>
+<status status="PASS" endtime="20190624 13:13:37.774" critical="yes" starttime="20190624 13:13:06.731"></status>
+</test>
+<status status="PASS" endtime="20190624 13:13:37.777" starttime="20190624 13:02:10.086"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="0" pass="3">Critical Tests</stat>
+<stat fail="0" pass="3">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat fail="0" id="s1" name="apiTest" pass="3">apiTest</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

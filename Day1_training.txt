@@ -1,0 +1,82 @@
+*** Settings ***
+Resource          Resource/commonKeyWords.robot
+
+*** Test Cases ***
+Checkbox_script
+    Open and Maximize Browser    http://the-internet.herokuapp.com/checkboxes
+    Wait Until Page Contains    Checkboxes
+    Select Checkbox    //input[@type='checkbox']
+    Checkbox Should Be Selected    //input[@type='checkbox']
+    Capture Page Screenshot
+    Unselect Checkbox    //input[@type='checkbox']/following-sibling::input
+    Checkbox Should Not Be Selected    //input[@type='checkbox']/following-sibling::input
+    Capture Page Screenshot
+    Sleep    5s
+    [Teardown]    Close All Browsers
+
+searchInGoogle
+    Open Browser    https://www.google.com/    Chrome
+    Maximize Browser Window
+    Press Key    dom=document.activeElement    test
+    Press Key    dom=document.activeElement    \\13
+    Sleep    5s
+    Capture Page Screenshot
+    [Teardown]    Close All Browsers
+
+dropdown_script
+    Open Browser    http://the-internet.herokuapp.com/dropdown    Chrome
+    Maximize Browser Window
+    Wait Until Page Contains Element    id=dropdown
+    Select From List    id=dropdown    Option 2
+    Capture Page Screenshot
+    Sleep    5s
+    [Teardown]    Close All Browsers
+
+fileUpload_script
+    Open Browser    http://the-internet.herokuapp.com/upload    Chrome
+    Maximize Browser Window
+    Wait Until Page Contains    File Uploader
+    ${/}    input[id=file-upload]
+    Sleep    5
+    [Teardown]    Close All Browsers
+
+forLoop
+    : FOR    ${COUNTER}    IN RANGE    10    100
+    \    Log    ${counter}
+    \    Run Keyword If    ${counter}==50    Run Keywords    Log    Stop
+    \    ...    AND    Exit For Loop
+
+compute
+    ${sum}    Evaluate    1+99
+    Log    ${sum}
+    ${sum}    Run Keywords    Evaluate    1+99
+    ...    AND
+    \    \    Log    $${sum}
+
+string
+    ${name}    Set Variable    Robot Framework
+    Run Keyword If    '${name}'=='Robot'    Log    Correct
+    ...    ELSE IF    '${name}'=='Robot Framework'    Log    CORRECT
+
+Contains Text
+    ${name}    Set Variable    Robot Framework
+    ${status}    Run Keyword And Return Status    Should Contain    ${name}    2z
+    Run Keyword If    '${status}'=='True'    Log    Correct
+    Run Keyword If    '${status}'=='False'    Run Keyword and Continue on Failure    Fail    Incorrect
+    Run Keyword If    '${status}'=='False'    Log    1
+    Run Keyword If    '${status}'=='False'    Log    2
+    Run Keyword If    '${status}'=='False'    Log    3
+
+scenarios
+    ${email}    Generate Random String    8
+    ${password}    Set Variable    pass1234
+    Open and Maximize Browser    ${url}
+    Input Text    name=user[email]    ${email}@gmail.com
+    Input Password    name=user[password]    ${password}
+    Click Button    //input[@type='submit']
+    Wait Until Page Contains    Welcome to Address Book
+    Capture Page Screenshot
+    Sleep    5
+    [Teardown]    Close All Browsers
+
+*** Keywords ***

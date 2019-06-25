@@ -1,0 +1,22 @@
+
+*** Settings ***
+Resource          ../Resource/commonKeyWords.robot
+Resource          ../Resource/Locators.robot     
+*** Variables ***
+
+
+*** Test Cases ***
+Login
+    Open and Maximize Browser    ${urlOmni}
+    Input Text    //input[@id='UserUsername']    ${test}
+    Click Button    //button[contains(text(),'NEXT')]
+    Wait Until Element Is Visible    //input[@id='UserUsername']/following::label[1]
+    Input Text    //input[@id='UserUsername']    ${test2}
+    Click Button    //button[contains(text(),'NEXT')]
+    Wait Until Element Is Visible    //input[@id='UserUsername']/following::label[1]
+    Click Button    //button[contains(text(),'NEXT')]
+    Clear Element Text    //input[@id='UserUsername']
+    Input Text    //input[@id='UserUsername']    ${test3}
+    Click Button    //button[contains(text(),'NEXT')]
+    Input Text    //input[@id='UserPassword']
+    [Teardown]    Close All Browsers

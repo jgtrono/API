@@ -1,0 +1,25 @@
+url="https://www.google.com/"
+urlOmni = "https://staging.trackme.com.ph/test/1.6/login#"
+test = ""
+test2 = "hahahaha"
+test3 = "jgtronoOMNI"
+test4= ""
+test5= "haha"
+test6 = "justinpogi1"
+
+#login
+username = "//input[@id='UserUsername']"
+next = "//button[contains(text(),'NEXT')]"
+password = "//input[@id='UserPassword']"
+signIn = "//button[contains(text(),'Sign in')]"
+invalidUserName = "//input[@id='UserUsername']/following::label[1]"
+
+#upload
+dispatchFile = "//input[@name='dispatchfile[]']"
+blankFile = "D:/Downloads/Omni Test Data/blank.xlsx"
+uploadRequestButton = "//a[@id='upload-requests']"
+save = "//button[@id='save']"
+clickLabel = "//div[@class='collapsible-header red']"
+blankErrorMessage = "//span[contains(text(),'You uploaded a blank file. Please try again.')]"
+blankClient = "D:/Downloads/Omni Test Data/blankclient_omni.xlsx"
+clientErrorMessage = "//td[contains(text(),'Client not recognized')]"
